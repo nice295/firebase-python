@@ -1,4 +1,5 @@
 import pyrebase
+from time import gmtime, strftime
 
 config = {
   "apiKey": "AIzaSyAESWd_hdkEmyeMFvI7_hlQbXqp9--51kA",
@@ -11,6 +12,13 @@ firebase = pyrebase.initialize_app(config)
 
 db = firebase.database()
 
-value = db.child("x").get()
-print("Key: " + value.key())
-print("Value: " + value.val())
+# To get old time
+value = db.child("time").get()
+print("Old value: " + value.val())
+
+# To set current time as string
+db.child("time").set(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
+
+# Now to check current time saved
+value = db.child("time").get()
+print("New value: " +value.val())
