@@ -10,8 +10,14 @@ $ pip3 install pyrebase
 
 Get test
 ---
-
 $ python3 get.py 
-123
+
+Set test
+---
+$ python3 set.py 
+
+Stream test (Listening event)
+---
+$ python3 stream.py 
 
 
